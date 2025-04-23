@@ -1,0 +1,75 @@
+/* estilo.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Estilos adicionais */
+.logo {
+  max-width: 150px;
+}
+
+.titulo-interesses {
+  text-align: center;
+}
+
+.area-busca,
+.area-limpar {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.campo-busca {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.botao-adicionar,
+.botao-limpar {
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color:rgb(0, 103, 183);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.lista-cursos {
+  margin-top: 20px;
+}
+
+.surface {
+  font-weight: bold;
+  color: #0078D4;
+}
