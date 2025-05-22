@@ -34,13 +34,44 @@
         </div>
     </div>
 
-    <!-- Script para aplicar classe .surface dinamicamente -->
+    <!-- JavaScript -->
     <script>
-      document.querySelectorAll('.item').forEach(function(el) {
-        if (el.textContent.includes("Microsoft Surface")) {
-          el.classList.add('surface');
+      const campoBusca = document.querySelector('.campo-busca');
+      const botaoAdicionar = document.querySelector('.botao-adicionar');
+      const botaoLimpar = document.querySelector('.botao-limpar');
+      const listaCursos = document.querySelector('.lista-cursos');
+
+      // Habilita os campos que estavam "readonly" e "disabled"
+      campoBusca.removeAttribute('readonly');
+      botaoAdicionar.removeAttribute('disabled');
+      botaoLimpar.removeAttribute('disabled');
+
+      // Adicionar item
+      botaoAdicionar.addEventListener('click', function () {
+        const texto = campoBusca.value.trim();
+
+        if (texto !== '') {
+          const novoCurso = document.createElement('div');
+          novoCurso.classList.add('curso', 'item');
+          novoCurso.textContent = texto;
+
+          // Se for um "Surface", adiciona classe especial
+          if (texto.includes("Microsoft Surface")) {
+            novoCurso.classList.add('surface');
+          }
+
+          listaCursos.appendChild(novoCurso);
+          campoBusca.value = ''; // limpa input
         }
       });
-        </script>
+
+      // Limpar lista
+      botaoLimpar.addEventListener('click', function () {
+        const cursos = listaCursos.querySelectorAll('.curso.item');
+        cursos.forEach(function (curso) {
+          curso.remove();
+        });
+      });
+    </script>
 </body>
 </html>
